@@ -5,17 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Photo extends Model
+class tag extends Model
 {
     use HasFactory;
-
-
-  
-
-    public function comments() {
-        return $this->hasMany(Comment::class);
+    public function photos(){
+        return $this->belongsToMany(photo::class)->using(PhotoTag::class)->withTimestamps();
     }
-
-
 }
- 
